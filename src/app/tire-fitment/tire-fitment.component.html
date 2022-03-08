@@ -1,0 +1,77 @@
+<div class="columns is-mobile is-multiline">
+  <div class="column is-2-desktop is-4-mobile">
+    <section class="">
+      <p class="title has-text-centered">
+        <button
+          id="findtires"
+          class="button is-warning "
+          [class.closebutton]="!open"
+          (click)="findTier()"
+          [innerText]="open?buttonValue:buttonCloseValue"
+        ></button>
+      </p>
+    </section>
+  </div>
+  <div class="column is-3-desktop is-8-mobile">
+    <section *ngIf="!open">
+      <div>
+        <div class="field">
+          <label class="label">Year :</label>
+          <div class="control">
+            <div class="select is-warning is-medium">
+              <select (change)="yearChange($event.target.value)">
+                <option selected>Select Year</option>
+                <option *ngFor="let year of (fitments | async).year"
+                  >{{year}}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Make :</label>
+          <div class="control">
+            <div class="select is-warning is-medium">
+              <select (change)="makeChange($event.target.value)">
+                <option selected>Select Make</option>
+                <option *ngFor="let make of (fitments | async).make">{{make}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Model :</label>
+          <div class="control">
+            <div class="select is-warning is-medium">
+              <select (change)="modelChange($event.target.value)">
+                <option selected>Select Model</option>
+                <option *ngFor="let model of models">{{model}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Trim :</label>
+          <div class="control">
+            <div class="select is-warning is-medium">
+              <select (change)="trimChange($event.target.value)">
+                <option selected value="0">Select Trim</option>
+                <option *ngFor="let trim of trims" [value]="trim"
+                  >{{trim}}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="common is-7-desktop is-10-mobile">
+    <section *ngIf="(fitments | async).allSelected">
+      <app-tire-models></app-tire-models>
+    </section>
+  </div>
+</div>

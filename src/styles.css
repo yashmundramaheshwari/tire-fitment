@@ -1,0 +1,26 @@
+/* Add application styles & imports to this file! */
+body,
+p,
+* {
+  font-family: 'Raleway' !important;
+}
+body {
+  background-color: #fffbeb;
+  min-height: 100vh;
+}
+section.is-warning.is-light {
+  background-color: #fffbeb;
+  color: #947600;
+}
+.closebutton {
+  border-radius: 50%;
+  font-weight: bold;
+  transition: all 0.1s linear;
+}
+.select.is-warning select {
+  min-width: 230px;
+}
+p.results {
+  margin-top: 2em;
+  padding: 0 2em;
+}
