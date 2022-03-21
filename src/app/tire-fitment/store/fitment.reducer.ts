@@ -5,6 +5,8 @@ import * as FitmentActions from './fitment.action';
 const initialState: Fitment = {
   year: [],
   make: [],
+  model: [],
+  trim: [],
   selected: {
     year: '',
     make: '',
@@ -28,6 +30,10 @@ export function FitmentReducer(
       return { ...state, year: [...action.payload.year] };
     case FitmentActions.LOAD_MAKE:
       return { ...state, make: [...action.payload.make] };
+    case FitmentActions.LOAD_MODEL:
+      return { ...state, model: [...action.payload.model] };
+    case FitmentActions.LOAD_TRIM:
+      return { ...state, trim: [...action.payload.trim] };  
     case FitmentActions.LOAD_YEAR_FAIL:
       return { ...state, error: action.payload };
     case FitmentActions.RESET_YEAR:

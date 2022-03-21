@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Make, Year } from '../fitment.model';
+import { Make, Model, Trim, Year } from '../fitment.model';
 
 // Type
 export const LOAD_YEAR = '[FITMENT] Load Year';
@@ -11,6 +11,8 @@ export const SET_MAKE = '[FITMENT] Set Make';
 export const SET_MODEL = '[FITMENT] Set Model';
 export const SET_TRIM = '[FITMENT] Set Trim';
 export const RESET_YEAR = '[FITMENT] Reset Year';
+export const LOAD_MODEL = '[FITMENT] Load Model';
+export const LOAD_TRIM = '[FITMENT] Load Trim';
 
 // Section 3
 export class LoadYear implements Action {
@@ -20,6 +22,17 @@ export class LoadMake implements Action {
   readonly type = LOAD_MAKE;
   constructor(public payload: Make) {}
 }
+
+export class LoadModel implements Action {
+  readonly type = LOAD_MODEL;
+  constructor(public payload: Model) {}
+}
+
+export class LoadTrim implements Action {
+  readonly type = LOAD_TRIM;
+  constructor(public payload: Trim) {}
+}
+
 export class LoadYearSuccess implements Action {
   readonly type = LOAD_YEAR_SUCCESS;
 
@@ -71,4 +84,6 @@ export type Actions =
   | SetModel
   | SetTrim
   | LoadMake
+  | LoadModel
+  | LoadTrim
   | ResetYear;

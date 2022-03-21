@@ -47,7 +47,7 @@
             <div class="select is-warning is-medium">
               <select (change)="modelChange($event.target.value)">
                 <option selected>Select Model</option>
-                <option *ngFor="let model of models">{{model}}</option>
+                <option *ngFor="let model of (fitments | async).model">{{model}}</option>
               </select>
             </div>
           </div>
@@ -59,9 +59,7 @@
             <div class="select is-warning is-medium">
               <select (change)="trimChange($event.target.value)">
                 <option selected value="0">Select Trim</option>
-                <option *ngFor="let trim of trims" [value]="trim"
-                  >{{trim}}</option
-                >
+                <option *ngFor="let trim of (fitments | async).trim">{{trim}}</option>
               </select>
             </div>
           </div>

@@ -59,25 +59,25 @@ export class TireFitmentComponent implements OnInit {
   makeChange(selectedMake: string) {
     this.models = this.trims = [];
     this.store.dispatch(new FitmentActions.SetMake(selectedMake));
-    this.http
-      .get('https://6080be3273292b0017cdbf2a.mockapi.io/models', {
-        params: new HttpParams().set('make', selectedMake)
-      })
-      .subscribe((result: Model) => {
-        this.models = result.model;
-      });
+    // this.http
+    //   .get('https://6080be3273292b0017cdbf2a.mockapi.io/models', {
+    //     params: new HttpParams().set('make', selectedMake)
+    //   })
+    //   .subscribe((result: Model) => {
+    //     this.models = result.model;
+    //   });
   }
 
   modelChange(selectedModel: string) {
     this.trims = [];
     this.store.dispatch(new FitmentActions.SetModel(selectedModel));
-    this.http
-      .get('https://6080be3273292b0017cdbf2a.mockapi.io/trim', {
-        params: new HttpParams().set('model', selectedModel)
-      })
-      .subscribe((result: Trim) => {
-        this.trims = result.trim;
-      });
+    // this.http
+    //   .get('https://6080be3273292b0017cdbf2a.mockapi.io/trim', {
+    //     params: new HttpParams().set('model', selectedModel)
+    //   })
+    //   .subscribe((result: Trim) => {
+    //     this.trims = result.trim;
+    //   });
   }
 
   trimChange(selectedTrim: string) {
